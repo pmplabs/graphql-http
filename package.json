@@ -107,7 +107,8 @@
     "build:umd": "rollup --configPlugin typescript --config rollup.config.ts",
     "build": "yarn build:esm && yarn build:cjs && yarn build:umd",
     "release": "semantic-release",
-    "gendocs": "typedoc --options typedoc.js src/"
+    "gendocs": "typedoc --options typedoc.js src/",
+    "postinstall": "yarn build"
   },
   "workspaces": [
     "implementations/**/*"
