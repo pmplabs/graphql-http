@@ -250,7 +250,7 @@ export async function parseRequestParams<
       try {
         const body =
           typeof req.body === 'function' ? await req.body() : req.body;
-        data = typeof body === 'string' ? JSON.parse(body) : body;
+        data = typeof body === "string" || Buffer.isBuffer(body) ? JSON.parse(body) : body;
       } catch (err) {
         throw new Error('Unparsable JSON body');
       }
